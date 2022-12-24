@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#131313"
+    android:padding="30dp"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/hourText"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pbTimer"
+            android:layout_marginTop="80dp"
+            android:layout_toLeftOf="@id/minuteText"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:hint="Hour"
+            android:inputType="numberSigned"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textColorHint="#FFFFFF"
+            android:maxLength="2"/>
+
+        <EditText
+            android:id="@+id/minuteText"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pbTimer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:hint="Minute"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textColorHint="#FFFFFF"
+            android:maxLength="2"/>
+
+        <EditText
+            android:id="@+id/secondText"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pbTimer"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@id/minuteText"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:hint="Second"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textColorHint="#FFFFFF"
+            android:maxLength="2"/>
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/minuteText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#ff8330"
+            android:backgroundTintMode="screen"
+            android:onClick="onClick"
+            android:text="Start"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/minuteText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#ff8330"
+            android:backgroundTintMode="screen"
+            android:onClick="onClick"
+            android:text="Stop"
+            android:visibility="invisible" />
+
+        <ProgressBar
+            android:id="@+id/pbTimer"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/circularprogressbar" />
+
+        <TextView
+            android:id="@+id/totalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pbTimer"
+            android:layout_centerHorizontal="true"
+            android:text="Total"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hourText"
+            android:text="0-24"
+            android:textColor="#A1FFFFFF"
+            android:layout_toLeftOf="@id/minuteText"
+            android:layout_marginRight="35dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hourText"
+            android:text="0-60"
+            android:textColor="#A1FFFFFF"
+            android:layout_toRightOf="@id/minuteText"
+            android:layout_marginLeft="27dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hourText"
+            android:text="0-60"
+            android:textColor="#A1FFFFFF"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/timeRemainingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="137dp"
+            android:text="00:00:00"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/timerUpRelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2131313"
+        android:visibility="invisible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/timeup"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/timerUpText"
+            android:layout_marginBottom="80dp"/>
+
+        <TextView
+            android:id="@+id/timerUpText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Time's Up"
+            android:textColor="#ff8330"
+            android:textSize="35dp"
+            android:background="#131313"/>
+
+        <Button
+            android:id="@+id/stopButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/timerUpText"
+            android:layout_marginTop="40dp"
+            android:text="Stop"
+            android:backgroundTint="#ff8330"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
+
+
+
+
